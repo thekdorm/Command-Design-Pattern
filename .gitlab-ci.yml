@@ -1,5 +1,27 @@
+image: python:3.11.3
+
+# Set pip cache dir to be in project dir
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
 stages:
+- build
 - test
+
+before_script:
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+
+build-job:
+  script:
+    - pip install -r requirements.txt
+    - pytest -V
 
 test-job:
   stage: test
