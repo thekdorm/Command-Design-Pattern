@@ -10,8 +10,8 @@ cache:
     - venv/
 
 stages:
-- build
-- test
+  - build
+  - test
 
 before_script:
   - pip install virtualenv
@@ -27,3 +27,10 @@ test-job:
   stage: test
   script:
     - pytest
+  artifacts:
+    when: always
+    paths:
+      - tests/result.xml
+    reports:
+      junit:
+        - result.xml
