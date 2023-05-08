@@ -1,7 +1,10 @@
 import pytest
 
-@pytest.fixture
+from Command import Command
+
+
+@pytest.fixture(scope="class")
 def command():
-    cmd = "TEST"
+    cmd = Command(cmd="TEST")
 
     yield cmd
