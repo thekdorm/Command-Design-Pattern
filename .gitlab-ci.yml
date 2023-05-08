@@ -30,7 +30,7 @@ test-job:
   artifacts:
     when: always
     paths:
-      - tests/result.xml
+      - result.xml
     reports:
       junit:
         - result.xml
