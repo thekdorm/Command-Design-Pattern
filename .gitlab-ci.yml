@@ -34,3 +34,4 @@ test-job:
     reports:
       junit:
         - result.xml
+    expire_in: 1 week
