@@ -26,7 +26,7 @@ build-job:
 test-job:
   stage: test
   script:
-    - pytest
+    - pytest tests
   artifacts:
     when: always
     paths:
